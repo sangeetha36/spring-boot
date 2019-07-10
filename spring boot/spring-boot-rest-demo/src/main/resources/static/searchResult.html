@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script >
+$(function() {
+	$("#frm").submit(function(evt) {
+		evt.preventDefault();
+		var email = $("#email").val();
+	
+		$.ajax({
+			url : url,  
+			method : 'GET' ,
+			dataType : 'json',
+			success : function (response) {
+			
+			var p1= $("<h3/>").text("Name" + response.name);
+			var p2= $("<h3/>").text("Age" + response.age);
+			var p3= $("<h3/>").text("Email" + response.email);
+			 $("#search").html("<h1>Details of the user" +name+"</h1>")
+			     .append(p1)
+			     .append(p2)
+			     .append(p3);
+			}
+		}) 
+		
+	})
+})
+</script>
+</head>
+<body>
+<h1>Search Result:</h1>
+
+</body>
+</html>
